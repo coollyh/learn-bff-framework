@@ -1,0 +1,11 @@
+{
+  "name": "diudiu-example",
+  "version": "1.0.0",
+  "description": "diudiu example",
+  "main": "index.js",
+  "author": "horn",
+  "license": "ISC",
+  "dependencies": {
+    "diudiu-core": "^1.0.0"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "diudiu",
+  "version": "1.0.0",
+  "description": "this is a bff frame",
+  "main": "index.js",
+  "author": "horn",
+  "license": "ISC",
+  "scripts": {
+    "dev": "NODE_ENV=development nodemon -e ts,ejs --exec ts-node -T ./example/app.ts",
+    "lerna": "npx lerna bootstrap"
+  },
+  "dependencies": {
+    "lerna": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.15",
+    "nodemon": "^2.0.15",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.5"
+  }
+}
