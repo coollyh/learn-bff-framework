@@ -1,4 +1,3 @@
-import { Console } from "console"
 import { App } from "../types"
 
 export default async (app: App) => {
