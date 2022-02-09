@@ -1,14 +1,14 @@
 import Koa from 'koa'
 import path from 'path'
 import { deepMerge, getHooks } from './utils'
-import { App, Hook } from './types'
-const hooks = ["static", "router", "lift"]
+import { App, DiudiuProcess, Hook } from './types'
+const hooks = ["elasticsearch", "mysql", "redis", "bodyparser", "view", "login", "custom-middlewares", "cors", "static", "router", "lift"]
 
 type Params = {
   appPath: string
 }
 
-export default async function Diudikpu(params: Params) {
+export default async function Diudiu(params: Params) {
   const app: App = (new Koa()) as App
   const { appPath } = params
   app.appPath = appPath
@@ -27,11 +27,11 @@ export default async function Diudikpu(params: Params) {
       await hook.default(app)
     } catch (error) {
       // TODO:后续章节会进行处理
-
+      (process as DiudiuProcess).emit("error", error)
     }
   }
 
   app.on("error", error => {
-
+    (process as DiudiuProcess).emit("error", error)
   })
 }

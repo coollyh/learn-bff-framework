@@ -7,6 +7,9 @@ export interface App extends Koa {
   appPath: string;
   extName: string;
   config: any;
+  redisConMsg: any
+  mysqlConMsg: any
+  esConMsg: any
 }
 
 type Signals =

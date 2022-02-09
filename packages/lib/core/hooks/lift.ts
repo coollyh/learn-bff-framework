@@ -6,8 +6,8 @@ export default async (app: App) => {
     printLog()
     log(`Server PORT ${c.cyan}${port}${c.end}`)
     log(`Server lifted in ${c.cyan}${app.appPath}${c.end}`)
-    // app.redisConMsg && log(app.redisConMsg)
-    // app.esConMsg && log(app.esConMsg)
+    app.redisConMsg && log(app.redisConMsg)
+    app.esConMsg && log(app.esConMsg)
     log("To shut down,press <CTRL> + C at any time.\n")
   })
   

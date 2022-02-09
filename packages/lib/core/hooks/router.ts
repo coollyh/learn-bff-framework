@@ -15,8 +15,8 @@ export default async (app: App) => {
     for (let item of fileList) {
       // 获取解构方式，导出对象中的method属性和handler属性
       const controller = await import(item)
-      const { method, handler } = controller.default;
-
+      // 默认给method一个GET请求
+      const { method="GET", handler } = controller.default;
       // 获取和actions目录的相对路径，例如goods/getInfo.js
       const relative = path.relative(`${app.appPath}/controller/`, item)
 
@@ -33,12 +33,13 @@ export default async (app: App) => {
       const { path, method } = ctx
       // 构建和文件路由匹配的形式：_GET_路由
       const key = "_" + method + "_" + path
-
+      // console.log(routerMap,key)
       // 如果匹配到，就执行对应的handler
       if (routerMap[key]) {
         await routerMap[key](ctx)
       } else {
-        ctx.body = "no this router"
+        await ctx.render('404')
+        // ctx.body = "no this router"
       }
       return next()
     })
